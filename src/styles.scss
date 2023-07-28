@@ -1,0 +1,109 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$bestnless-outofstock-notification-primary: mat.define-palette(mat.$indigo-palette);
+$bestnless-outofstock-notification-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$bestnless-outofstock-notification-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$bestnless-outofstock-notification-theme: mat.define-light-theme((
+  color: (
+    primary: $bestnless-outofstock-notification-primary,
+    accent: $bestnless-outofstock-notification-accent,
+    warn: $bestnless-outofstock-notification-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($bestnless-outofstock-notification-theme);
+
+$styleVersion: 4.3;
+@import '~@spartacus/styles/index';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Add rounded corners to the bottom sheet */
+.mat-bottom-sheet-container {
+  border-top-left-radius: 25px; /* Adjust the value to control the amount of rounding */
+  border-top-right-radius: 25px; /* Adjust the value to control the amount of rounding */
+  // overflow: hidden; /* To hide any content that goes beyond the rounded corners */
+  padding: unset !important; /* Set your desired padding value */
+}
+
+/* Switch style */
+/* Remove Angular Material's default styles */
+.iphone-switch {
+  width: auto;
+  height: auto;
+  padding: 0;
+  line-height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Remove the track's box-shadow and set rounded corners */
+.iphone-switch .mat-slide-toggle-bar {
+  box-shadow: none;
+  border-radius: 15px;
+  height: 30px;
+  width: 44px;
+}
+
+/* Customize the track's background and height */
+.iphone-switch .mat-slide-toggle-bar::before {
+  background-color: #dcdcdc; /* Set your desired background color for the track */
+  height: 30px; /* Set the height you prefer for the track */
+}
+
+/* Customize the thumb's appearance */
+.iphone-switch .mat-slide-toggle-thumb {
+  width: 26px; /* Set the width you prefer for the thumb */
+  height: 26px; /* Set the height you prefer for the thumb */
+  border-radius: 15px; /* Make it circular by setting the border radius to half the width/height */
+  background-color: #fff; /* Set your desired background color for the thumb */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14); /* Apply some shadow for a raised effect */
+}
+
+/* Adjust the thumb's positioning to make it centered */
+.iphone-switch .mat-slide-toggle-thumb-container {
+  margin: 0;
+  margin-top: 5px;
+  margin-right: 1px;
+}
+
+/* Hide the thumb's ripple effect */
+.iphone-switch .mat-ripple {
+  display: none;
+}
+
+
+/* Change the color of the mat-slide-toggle */
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: #137fa6; /* Set your desired blue color, e.g., #007bff for a blue color similar to iPhone switch */
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #ffffff; /* Set the thumb color to white when the toggle is checked */
+}
+
+

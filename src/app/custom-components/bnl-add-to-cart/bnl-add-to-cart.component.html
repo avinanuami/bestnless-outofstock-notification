@@ -1,0 +1,6 @@
+
+<span>
+    <span *ngIf="showInventory$ | async">{{ getInventory() }}</span>
+    {{ hasStock ? 'In stock' : 'out Of Stock' }}
+</span>
+<button (click)="openBS()" *ngIf="!hasStock">Notify me</button>

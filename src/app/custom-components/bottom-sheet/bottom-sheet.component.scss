@@ -1,0 +1,76 @@
+.container {
+    padding: 0;
+
+    .topBSLine {
+        height: 2px;
+        width: 100px;
+        background-color: #e2e1e1;
+    }
+
+    .BSHeader {
+        text-transform: uppercase;
+        font-size: 17px;
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 12px;
+    }
+
+    .BSMessage {
+        text-align: center;
+        font-size: 13px;
+    }
+
+    .emailNotification {
+        display: flex;
+        justify-content: space-between;
+        margin: 40px 20px 20px;
+
+        .label {
+            font-size: 16px;
+        }
+    }
+
+    .smsNotification {
+        display: flex;
+        justify-content: space-between;
+        // margin: 40px 20px 20px;
+        margin-bottom: 80px;
+
+        .label {
+            font-size: 16px;
+        }
+    }
+
+    .hr-padding {
+        margin: 0 20px;
+    }
+
+    .sms-notification {
+        margin: 20px;
+
+        .label {
+            font-size: 16px;
+        }
+
+        .smsLabel {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        mat-form-field {
+            width: 100%;
+        }
+    }
+
+    button {
+        border: none;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+        padding: 15px;
+        width: 90%;
+        margin: 0 20px;
+        margin-bottom: 30px;
+        font-size: 15px;
+    }
+}

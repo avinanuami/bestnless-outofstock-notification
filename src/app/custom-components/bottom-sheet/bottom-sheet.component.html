@@ -1,0 +1,35 @@
+<div class="container">
+    <hr class="topBSLine">
+    <h3 class="BSHeader">Manage Notifications</h3>
+    <p class="BSMessage">Get notified when this product is available again.</p>
+    <hr>
+    <div class="emailNotification">
+        <span class="label">Email Notifications</span>
+        <mat-slide-toggle class="iphone-switch" [checked]="isEmailNotificationOn"></mat-slide-toggle>
+    </div>
+    <hr class="hr-padding">
+    <div class="horizontal-line"></div>
+    <div class="sms-notification">
+        <ng-container *ngIf="isUserAlreadyRegisteredForSMS;else onlySwitch">
+            <span class="label">SMS Notifications</span>
+            <p class="smsLabel">Please enter your mobile number to receive notifications via SMS:</p>
+            <form [formGroup]="phoneNumberForm">
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput formControlName="phoneNumber">
+                    <mat-error *ngIf="hasError('required')">Phone number is required</mat-error>
+                    <mat-error *ngIf="hasError('invalidPhoneNumber')">Invalid phone number</mat-error>
+                </mat-form-field>
+            </form>      
+        </ng-container>
+    </div>
+    <button (click)="onNotifyClicked()">Notify me</button>
+</div>
+
+<ng-template #onlySwitch>
+    <!-- Put your other content here, which will be displayed when someCondition is false -->
+    <div class="smsNotification">
+        <span class="label">SMS Notifications</span>
+        <mat-slide-toggle class="iphone-switch" [checked]="isSMSNotificationOn"></mat-slide-toggle>
+    </div>
+</ng-template>
